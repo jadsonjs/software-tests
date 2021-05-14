@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>Integrando MVC - Inserir</title>
+	</head>
+	<body>
+		<div>
+			<form autocomplete="off" action="/agenda/inserir" th:object="${contato}" method="post">
+				<input type="hidden" th:field="*{id}">
+				<div>
+					<label th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></label>
+					<input type="text" th:field="*{nome}" placeholder="Nome" />
+				</div>
+	
+				<div>
+					<label th:if="${#fields.hasErrors('ddd')}" th:errors="*{ddd}" ></label>
+					<input type="text" th:field="*{ddd}" placeholder="Ddd" />
+				</div>
+				
+				<div>
+					<label th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></label>
+					<input type="text" th:field="*{telefone}" placeholder="Telefone" />
+				</div>
+				
+				<div>
+					<div>
+						<button type="submit">Salvar</button>
+					</div>
+				</div>
+	
+			</form>
+		</div>
+	</body>
+</html>
+
