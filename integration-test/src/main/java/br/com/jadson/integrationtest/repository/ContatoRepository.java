@@ -3,9 +3,8 @@
  */
 package br.com.jadson.integrationtest.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-
 import br.com.jadson.integrationtest.model.Contato;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  * ContatoRepository.java

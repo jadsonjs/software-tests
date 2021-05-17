@@ -3,14 +3,13 @@
  */
 package br.com.jadson.integrationtest.service;
 
-import javax.validation.ConstraintViolationException;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import br.com.jadson.integrationtest.exception.ContatoException;
 import br.com.jadson.integrationtest.model.Contato;
 import br.com.jadson.integrationtest.repository.ContatoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import javax.validation.ConstraintViolationException;
 
 /**
  * ContatoServiceImpl.java

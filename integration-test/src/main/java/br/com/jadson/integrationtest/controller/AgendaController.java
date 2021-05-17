@@ -3,12 +3,11 @@
  */
 package br.com.jadson.integrationtest.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-
 import br.com.jadson.integrationtest.exception.ContatoException;
 import br.com.jadson.integrationtest.model.Contato;
 import br.com.jadson.integrationtest.service.ContatoService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 /**
  * AgendaController.java
