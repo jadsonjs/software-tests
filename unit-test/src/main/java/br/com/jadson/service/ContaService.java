@@ -1,8 +1,4 @@
 /*
- * Federal University of Rio Grande do Norte
- * Department of Informatics and Applied Mathematics
- * Collaborative & Automated Software Engineering (CASE) Research Group
- *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -22,28 +18,29 @@
  * THE SOFTWARE.
  *
  *
- * software-tests
- * br.com.jadson.test
- * Conta
- * 14/05/21
+ * unit-test
+ * br.com.jadson.service
+ * ContaService
+ * 17/05/21
  */
-package br.com.jadson.test;
+package br.com.jadson.service;
+
+import br.com.jadson.domain.Conta;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
+ *
  * Jadson Santos - jadsonjs@gmail.com
  */
-public class Conta {
+@Service
+public class ContaService {
 
-    private Double saldo = 0.0d;
-
-    public Conta(Double saldo){
-        if(saldo == null)
-            throw new IllegalArgumentException("Saldo Inválido");
-        this.saldo = saldo;
-    }
-
-    public boolean temSaldo(){
-        return saldo > 0 ;
+    @Transactional
+    public double transferir(Conta origem, Conta destino, Double valor){
+        origem.sacar(valor);
+        return destino.depositar(valor);
     }
 
 }
+

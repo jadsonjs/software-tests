@@ -1,7 +1,4 @@
 /*
- * Federal University of Rio Grande do Norte
- * Department of Informatics and Applied Mathematics
- * Collaborative & Automated Software Engineering (CASE) Research Group
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,49 +19,29 @@
  * THE SOFTWARE.
  *
  *
- * software-tests
- * br.com.jadson.test
- * ContaTest
- * 14/05/21
+ * unit-test
+ * br.com.jadson.mocks
+ * CustomContaJDBCRepositoryMock
+ * 17/05/21
  */
-package br.com.jadson.test;
+package br.com.jadson.mocks;
+
+import br.com.jadson.domain.Conta;
+import br.com.jadson.repository.CustomContaRepository;
 
 /**
- * Test class for Conta class
  * Jadson Santos - jadsonjs@gmail.com
  */
-public class ContaTest {
+public class CustomContaJDBCRepositoryMock implements CustomContaRepository {
 
-    void testaContaComSaldo(){
-        Conta conta = new Conta(10.0d);
-        if(conta.temSaldo())
-            System.out.println("PASSED");
-        else
-            System.out.println("FAIL");
+    @Override
+    public void atualizarSaldo(Conta conta) {
+        // do nothing
     }
 
-    void testaContaSemSaldo(){
-        Conta conta = new Conta(0.0d);
-        if(conta.temSaldo())
-            System.out.println("FAIL");
-        else
-            System.out.println("PASSED");
-    }
-
-    void testaContaComSaldoNulo(){
-        try {
-            Conta conta = new Conta(null);
-            System.out.println("FAIL");
-        }catch (IllegalArgumentException iaex){
-            System.out.println("PASSED");
-        }
-    }
-
-    public static void main(String[] args) {
-        new ContaTest().testaContaComSaldo();
-        new ContaTest().testaContaSemSaldo();
-        new ContaTest().testaContaComSaldoNulo();
+    @Override
+    public double findLimiteChequeEspecial(Conta conta) {
+        return 0;
     }
 }
-
 
