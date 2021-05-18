@@ -1,5 +1,4 @@
-/*
- *
+/**
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -17,32 +16,36 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
- *
- *
- * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.repository;
+
+import br.com.jadson.integrationtest.model.Conta;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 /**
+ * ContatoRepository.java
  *
- * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+public interface ContaRepository extends JpaRepository<Conta, Long> {
 
-    String message;
+    Conta findFirstByNumero(String numero);
 
-    public AmbienteBean(String message){
-        this.message = message;
-    }
+    @Query("SELECT c FROM Conta c WHERE c.correntista.nome = :nome ")
+    List<Conta> findByNomeCorrentista(@Param("nome") String nome);
 
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
+    @Query("SELECT c FROM Conta c WHERE c.correntista.cpf = :cpf ")
+    List<Conta> findByCpfCorrentista(@Param("cpf") Long cpf);
+
+    @Query("SELECT c FROM Conta c")
+    List<Conta> findAllOrder(Sort sort);
 
 }
+
+
 
 

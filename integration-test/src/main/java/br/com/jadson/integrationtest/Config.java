@@ -26,6 +26,8 @@
  */
 package br.com.jadson.integrationtest;
 
+import br.com.jadson.integrationtest.service.ContaService;
+import br.com.jadson.integrationtest.service.ContaServiceImpl;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -65,6 +67,11 @@ public class Config {
         dataSource.setUsername("sa");
         dataSource.setPassword("sa");
         return dataSource;
+    }
+
+    @Bean
+    public ContaService contaService(){
+        return new ContaServiceImpl();
     }
 
 }

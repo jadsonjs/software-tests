@@ -1,4 +1,4 @@
-/*
+/**
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -18,31 +18,48 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- *
- * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.model;
+
+import lombok.Data;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 /**
+ * Conta.java
  *
- * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+@Data
+@Entity
+public class Conta {
 
-    String message;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
 
-    public AmbienteBean(String message){
-        this.message = message;
-    }
+	@NotNull(message="O saldo não pode ser nulo")
+	private Double saldo;
 
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
+	@NotEmpty(message="O número da conta não pode ser vazio")
+	private String numero;
 
+	@NotNull(message="O correntista não pode ser nulo")
+	@ManyToOne(cascade = CascadeType.ALL)
+	private Correntista correntista;
+
+	public Conta() {}
+
+	public Conta(Double saldo, String numero, Correntista correntista) {
+		this.saldo = saldo;
+		this.numero = numero;
+		this.correntista = correntista;
+	}
+
+	public boolean isNegativada() {
+		return saldo < 0;
+	}
 }
 
 

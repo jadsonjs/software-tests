@@ -19,30 +19,18 @@
  * THE SOFTWARE.
  *
  *
- * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.service;
+
+import br.com.jadson.integrationtest.exception.NegocioException;
+import br.com.jadson.integrationtest.model.Conta;
 
 /**
+ * ContaService.java
  *
- * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+public interface ContaService {
 
-    String message;
-
-    public AmbienteBean(String message){
-        this.message = message;
-    }
-
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
+	void abrirConta(Conta conta) throws NegocioException;
 
 }
-
-

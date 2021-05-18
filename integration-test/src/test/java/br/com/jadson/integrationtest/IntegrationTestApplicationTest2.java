@@ -28,12 +28,14 @@ class IntegrationTestApplicationTest2 {
      * This method test data recovery from datasource
      */
     @Test
+    @Sql(statements = "delete from ALUNO ", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
     @Sql({"/insert1.sql", "/insert2.sql"})
+    @Sql(statements = "delete from ALUNO ", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
     void testeDatabaseData(){
         int qtdAlunos = jdbcTemplate.queryForObject(
                 "SELECT COUNT(*) FROM ALUNO", Integer.class);
 
-        Assertions.assertEquals(5, qtdAlunos);
+        Assertions.assertEquals(4, qtdAlunos);
 
     }
 

@@ -20,29 +20,42 @@
  *
  *
  * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
+ * br.com.jadson.integrationtest.model
+ * Usuario
+ * 18/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.model;
+
+import lombok.Data;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 /**
  *
  * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+@Data
+@Entity
+public class Correntista {
 
-    String message;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long id;
 
-    public AmbienteBean(String message){
-        this.message = message;
+    @NotNull(message="O nome não pode ser vazio")
+    private String nome;
+
+    @NotNull(message="O CPF não pode ser nulo")
+    private Long cpf;
+
+    public Correntista(){}
+
+    public Correntista(long cpf, String nome) {
+        this.cpf = cpf;
+        this.nome = nome;
     }
-
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
-
 }
-
-

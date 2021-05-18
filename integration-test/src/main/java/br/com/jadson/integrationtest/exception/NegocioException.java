@@ -1,5 +1,6 @@
 /*
  *
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,31 +19,18 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- *
- * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.exception;
 
 /**
+ * NegocioException.java
  *
- * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+public class NegocioException extends RuntimeException {
 
-    String message;
-
-    public AmbienteBean(String message){
-        this.message = message;
-    }
-
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
+	public NegocioException(String e) throws NegocioException {
+		super(e);
+	}
 
 }
-
 

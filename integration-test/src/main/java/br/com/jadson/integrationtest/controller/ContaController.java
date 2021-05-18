@@ -1,5 +1,6 @@
 /*
  *
+ *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
  * in the Software without restriction, including without limitation the rights
@@ -18,31 +19,38 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *
- *
- * integration-test
- * br.com.jadson.integrationtest
- * EnvironmentConfig
- * 17/05/21
  */
-package br.com.jadson.integrationtest;
+package br.com.jadson.integrationtest.controller;
+
+import br.com.jadson.integrationtest.exception.NegocioException;
+import br.com.jadson.integrationtest.model.Conta;
+import br.com.jadson.integrationtest.model.Correntista;
+import br.com.jadson.integrationtest.service.ContaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 /**
+ * ContaController.java
  *
- * Jadson Santos - jadsonjs@gmail.com
  */
-public class AmbienteBean {
+@Controller
+public class ContaController {
 
-    String message;
+	@Autowired
+	private ContaService contaService;
 
-    public AmbienteBean(String message){
-        this.message = message;
-    }
+	/**
+	 * Open a new bank account
+	 * @param saldo
+	 * @param numero
+	 * @param cpf
+	 * @param nome
+	 * @throws NegocioException
+	 */
+	public void abrirConta(Double saldo, String numero, Long cpf, String nome) throws NegocioException {
+		Conta conta = new Conta(saldo, numero, new Correntista(cpf, nome));
+		contaService.abrirConta(conta);
+	}
 
-    public String print(){
-        System.out.println(message);
-        return message;
-    }
-
+	
 }
-
-
