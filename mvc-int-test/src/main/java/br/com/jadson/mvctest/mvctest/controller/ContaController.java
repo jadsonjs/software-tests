@@ -57,7 +57,7 @@ public class ContaController {
 	}
 
 	@GetMapping("/conta/{id}")
-	public ModelAndView getContato(@PathVariable("id") Long id,ModelAndView mav){
+	public ModelAndView getConta(@PathVariable("id") Long id,ModelAndView mav){
 		mav.setViewName("conta/conta");
 		mav.addObject("conta",repository.findById(id).get());
 		return mav;
