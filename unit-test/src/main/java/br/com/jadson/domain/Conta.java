@@ -30,15 +30,14 @@ import br.com.jadson.repository.CustomContaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
+import javax.validation.constraints.Positive;
 
 /**
  * Jadson Santos - jadsonjs@gmail.com
  */
-@Entity
+
 public class Conta {
 
-    @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
 
     private Double saldo = 0.0d;
@@ -47,11 +46,14 @@ public class Conta {
     @Autowired
     CustomContaRepository repository;
 
+
     public Conta(Double saldo){
-        if(saldo == null)
+        if(saldo == null || saldo < 0 )
             throw new IllegalArgumentException("Saldo Inválido");
         this.saldo = saldo;
     }
+
+
 
     public boolean temSaldo(){
         return saldo > 0 ;
@@ -88,6 +90,10 @@ public class Conta {
 
     public Double getSaldo() {
         return saldo;
+    }
+
+    public void setSaldo(Double saldo) {
+        this.saldo = saldo;
     }
 
     public Long getId(){

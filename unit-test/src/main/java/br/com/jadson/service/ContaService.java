@@ -26,6 +26,8 @@
 package br.com.jadson.service;
 
 import br.com.jadson.domain.Conta;
+import br.com.jadson.repository.CustomContaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,6 +37,15 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service
 public class ContaService {
+
+    @Autowired
+    CustomContaRepository repository;
+
+    @Transactional
+    public double atualizarSaldo(Conta conta){
+        repository.atualizarSaldo(conta);
+        return conta.getSaldo();
+    }
 
     @Transactional
     public double transferir(Conta origem, Conta destino, Double valor){

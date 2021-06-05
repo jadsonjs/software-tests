@@ -26,6 +26,8 @@
  */
 package br.com.jadson.domain;
 
+import org.junit.jupiter.api.Assertions;
+
 /**
  * Test class for Conta class
  * Jadson Santos - jadsonjs@gmail.com
@@ -48,6 +50,15 @@ public class ContaTest {
             System.out.println("PASSED");
     }
 
+    void testaContaComSaldoNegativo(){
+        try {
+            Conta conta = new Conta(-100.0d);
+            System.out.println("FAIL");
+        }catch (IllegalArgumentException iaex){
+            System.out.println("PASSED");
+        }
+    }
+
     void testaContaComSaldoNulo(){
         try {
             Conta conta = new Conta(null);
@@ -57,9 +68,22 @@ public class ContaTest {
         }
     }
 
+    /**
+     * Este teste não faz sentido
+     */
+    void testaMetodoSetSaldo(){
+        Conta conta = new Conta(0.0d);
+        conta.setSaldo(10.0d);
+        if(conta.getSaldo().equals(10.0d))
+            System.out.println("PASSED");
+        else
+            System.out.println("FAIL");
+    }
+
     public static void main(String[] args) {
         new ContaTest().testaContaComSaldo();
         new ContaTest().testaContaSemSaldo();
+        new ContaTest().testaContaComSaldoNegativo();
         new ContaTest().testaContaComSaldoNulo();
     }
 }
