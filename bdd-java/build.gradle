@@ -14,11 +14,23 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.24'
     annotationProcessor 'org.projectlombok:lombok:1.18.24'
 
-    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.9.0'
-    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.9.0'
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.10.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit-platform-engine', version: '7.10.0'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    // we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests
+    testImplementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.9.1'
+    // we want to use dependency injection in our Cucumber tests - remove this if you don't
+    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.10.0'
+
+    // cubumber with Junit 4
+    // testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.10.0'
+
+    // integration of cucumber with spring
+    // implementation group: 'io.cucumber', name: 'cucumber-spring', version: '7.10.0'
+
 }
 
 test {

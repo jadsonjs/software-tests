@@ -10,20 +10,18 @@
 # expected behaviour of the application. It should not describe the implementation
 
 
-
+@AccountTest
 
 Feature: Withdraw in a Bank
   This feature manger how withdraw works
 
   Scenario: Withdraw money from account.
-    Given I have $100 in my account.
-    When I request $20.
-    Then The account should stay with $80
+    Given I have a balance in my account.
+    When I request a amount smaller than the balance.
+    Then The withdraw should be done
 
 
-  Scenario: Attempt withdrawal using invalid card
-    Given I have $100 in my account.
-    But  my card is invalid.
-    When I request $20.
-    Then my card should not be returned.
-    And An error message should be shown.
+  Scenario: Attempt withdrawal negative balance
+    Given I have a balance in my account.
+    When I request an amount greater than the balance
+    Then An error message should be shown.
