@@ -30,9 +30,7 @@ import org.junit.platform.suite.api.Suite;
  *
  * Junit 5
  *    - @SelectClasspathResource where the test are localized (.feature), under the /test/resources
- *
  *    - @ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "true")
- *
  *    - @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@AccountTest")
  *         Execute only features file with this tag
  *

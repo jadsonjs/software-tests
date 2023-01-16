@@ -30,10 +30,12 @@ public class AccountTestSteps {
     public void i_have_a_balance_in_my_account() {
         account = new Account(100d);
     }
+
     @When("I request a amount smaller than the balance.")
     public void i_request_a_amount_smaller_than_the_balance() {
         account.withdraw(20d);
     }
+
     @Then("The withdraw should be done")
     public void the_withdraw_should_be_done() {
         Assertions.assertEquals(80d, account.getBalance());
