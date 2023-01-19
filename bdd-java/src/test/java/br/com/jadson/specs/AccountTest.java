@@ -1,8 +1,4 @@
 /*
- * Universidade Federal do Rio Grande do Norte
- * Instituto Metrópole Digital
- * Diretoria de Tecnologia da Informação
- *
  * bdd-java
  * AccountTest
  * @since 14/12/2022
@@ -10,9 +6,7 @@
 package br.com.jadson.specs;
 
 import io.cucumber.junit.platform.engine.Constants;
-import io.cucumber.junit.platform.engine.Cucumber;
 import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.IncludeEngines;
 import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 

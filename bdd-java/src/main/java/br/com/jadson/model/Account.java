@@ -25,6 +25,9 @@ public class Account {
         this.balance = balance;
     }
 
+    public Account(String owner, Integer number, Double balance) {
+        this(balance);
+    }
 
 
     public boolean hasBalence(){

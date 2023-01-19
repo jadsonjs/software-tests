@@ -18,4 +18,3 @@
       And eu preencho os campos de login e senha com informações inválidas
       When eu clico no botão de logar
       Then O sistema deve me mostrar uma mensagem de credenciais inválidas
-
