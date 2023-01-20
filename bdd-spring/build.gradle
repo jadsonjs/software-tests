@@ -1,0 +1,52 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.0.1'
+	id 'io.spring.dependency-management' version '1.1.0'
+}
+
+group = 'br.com.jadson'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// we want to use cucumber for BDD
+	implementation 'io.cucumber:cucumber-java:7.11.0'
+	// we want to integrate cucumber with spring
+	//implementation 'io.cucumber:cucumber-spring:7.11.0'
+
+	// we want to use google core lib
+	implementation 'com.google.guava:guava:31.1-jre'
+
+	compileOnly 'org.projectlombok:lombok'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	annotationProcessor 'org.projectlombok:lombok'
+
+	runtimeOnly 'com.h2database:h2'
+
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	// we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests
+	testImplementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.9.1'
+	// execute cucumber with Junit
+	testImplementation group: 'io.cucumber', name: 'cucumber-junit-platform-engine', version: '7.10.0'
+	// we want to use dependency injection in our Cucumber tests - remove this if you don't
+	testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.11.0'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
