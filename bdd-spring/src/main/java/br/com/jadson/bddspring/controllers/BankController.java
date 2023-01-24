@@ -7,7 +7,6 @@ package br.com.jadson.bddspring.controllers;
 
 import br.com.jadson.bddspring.model.Account;
 import br.com.jadson.bddspring.services.BankService;
-import com.google.common.collect.ImmutableList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
