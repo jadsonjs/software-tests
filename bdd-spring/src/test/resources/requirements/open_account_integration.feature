@@ -1,9 +1,11 @@
 
+@IntegrationTest
 
-Feature: Bank Accounts 2
+Feature: Open Accounts in Bank
 
-  Scenario: Open a new account integration test
+  Scenario: Open a new account
     Given I make a initial deposit
-    When I request to open a new account
+    When I request "/account/open" to open a new account
     Then A new account should be created
     And the response will return status 200
+

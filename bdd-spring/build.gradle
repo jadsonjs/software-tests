@@ -22,13 +22,10 @@ dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	// we want to use cucumber for BDD
-	implementation 'io.cucumber:cucumber-java:7.11.0'
-	// we want to integrate cucumber with spring
-	//implementation 'io.cucumber:cucumber-spring:7.11.0'
 
-	// we want to use google core lib
-	implementation 'com.google.guava:guava:31.1-jre'
+	implementation ('io.cucumber:cucumber-java:7.11.0')  { because 'we want to use cucumber for BDD'}
+	implementation ('io.cucumber:cucumber-spring:7.11.0'){ because 'we want to integrate cucumber with spring'}
+	implementation ('com.google.guava:guava:31.1-jre')   { because 'we want to use google core lib'}
 
 	compileOnly 'org.projectlombok:lombok'
 
@@ -38,13 +35,10 @@ dependencies {
 
 	runtimeOnly 'com.h2database:h2'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	// we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests
-	testImplementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.9.1'
-	// execute cucumber with Junit
-	testImplementation group: 'io.cucumber', name: 'cucumber-junit-platform-engine', version: '7.10.0'
-	// we want to use dependency injection in our Cucumber tests - remove this if you don't
-	testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.11.0'
+	testImplementation ('org.springframework.boot:spring-boot-starter-test') { because 'we want to run spring boost tests'}
+	testImplementation ('org.junit.platform:junit-platform-suite:1.9.1')     { because 'we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests'}
+	testImplementation ('io.cucumber:cucumber-junit-platform-engine:7.10.0') { because 'we want to execute cucumber with Junit 5'}
+
 }
 
 tasks.named('test') {
