@@ -14,6 +14,7 @@ import org.junit.platform.suite.api.SelectClasspathResource;
 import org.junit.platform.suite.api.Suite;
 
 /**
+ * Entry point to test Customer related functionalities.
  *
  * @author Jadson Santos - jadson.santos@ufrn.br
  */
@@ -26,8 +27,9 @@ import org.junit.platform.suite.api.Suite;
     //@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,     value = "br.com.jadson.bddspring.config"  ),
     //@ConfigurationParameter(key = Constants.GLUE_PROPERTY_NAME,     value = "br.com.jadson.bddspring.steps"  ),
 
-    // show the message to publish report
+    // show the message to publish test reports
     @ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "false"),
+
 
     // filter test with this tag
     @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@IntegrationTest")

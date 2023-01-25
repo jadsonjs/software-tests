@@ -18,26 +18,33 @@ repositories {
 	mavenCentral()
 }
 
+ext {
+	lombokVersion = '1.18.24'
+	cubumberVersion = '7.11.0'
+}
+
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	implementation ('io.cucumber:cucumber-java:7.11.0')  { because 'we want to use cucumber for BDD'}
-	implementation ('io.cucumber:cucumber-spring:7.11.0'){ because 'we want to integrate cucumber with spring'}
-	implementation ('com.google.guava:guava:31.1-jre')   { because 'we want to use google core lib'}
+	implementation ("io.cucumber:cucumber-java:${cubumberVersion}")   { because 'we want to use cucumber for BDD'}
+	implementation ("io.cucumber:cucumber-spring:${cubumberVersion}") { because 'we want to integrate cucumber with spring'}
+	implementation ('com.google.guava:guava:31.1-jre')                { because 'we want to use google core lib'}
 
-	compileOnly 'org.projectlombok:lombok'
+	compileOnly "org.projectlombok:lombok:${lombokVersion}"
+	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
 
-	annotationProcessor 'org.projectlombok:lombok'
-
 	runtimeOnly 'com.h2database:h2'
 
-	testImplementation ('org.springframework.boot:spring-boot-starter-test') { because 'we want to run spring boost tests'}
-	testImplementation ('org.junit.platform:junit-platform-suite:1.9.1')     { because 'we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests'}
-	testImplementation ('io.cucumber:cucumber-junit-platform-engine:7.10.0') { because 'we want to execute cucumber with Junit 5'}
+	testImplementation ('org.springframework.boot:spring-boot-starter-test')             { because 'we want to run spring boost tests'}
+	testImplementation ('org.junit.platform:junit-platform-suite:1.9.1')                 { because 'we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests'}
+	testImplementation ("io.cucumber:cucumber-junit-platform-engine:${cubumberVersion}") { because 'we want to execute cucumber with Junit 5'}
+
+	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 
 }
 

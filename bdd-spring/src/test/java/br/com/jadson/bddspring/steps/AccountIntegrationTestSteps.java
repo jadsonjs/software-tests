@@ -7,9 +7,15 @@
 package br.com.jadson.bddspring.steps;
 
 import br.com.jadson.bddspring.model.Account;
+import br.com.jadson.bddspring.repositories.AccountRepository;
+import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
+import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -21,9 +27,11 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 /**
- *
+ * It stores the mapping between each step of the scenario
+ * defined in the feature file with a code of function to be executed.
  * @author Jadson Santos - jadson.santos@ufrn.br
  */
+@Slf4j
 public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
 
     Account account;
@@ -32,6 +40,37 @@ public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
 
     @Autowired
     TestRestTemplate testRestTemplate;
+
+    @Autowired
+    AccountRepository accountRepository;
+
+
+    //this method executes before every scenario
+    @Before
+    public void before() {
+        log.info("Before scenario ");
+    }
+
+    //this method executes before every step
+    @BeforeStep
+    public void beforeStep() {
+        log.info("BeforeStep ");
+    }
+
+    //this method executes after every step
+    @AfterStep
+    public void afterStep() {
+        log.info("AfterStep");
+    }
+
+    //this method executes after every scenario
+    @After
+    public void after() {
+        log.info("after scenario");
+        accountRepository.deleteAll();
+    }
+
+
 
     @Given("I make a initial deposit")
     public void i_make_a_initial_deposit() {
