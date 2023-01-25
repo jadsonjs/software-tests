@@ -6,7 +6,9 @@
 package br.com.jadson.bddspring.steps;
 
 import io.cucumber.spring.CucumberContextConfiguration;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.web.client.TestRestTemplate;
 
 /**
  * Configuration of spring with cucumber
@@ -23,4 +25,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 // It enables Cucumber to use Spring Context for test scenario execution.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CucumberSpringContextConfig {
+
+    @Autowired
+    TestRestTemplate testRestTemplate;
 }
