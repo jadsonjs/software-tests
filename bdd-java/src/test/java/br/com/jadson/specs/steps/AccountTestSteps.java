@@ -29,6 +29,8 @@ public class AccountTestSteps {
 
     @Given("all bank accounts")
     public void all_bank_accounts(io.cucumber.datatable.DataTable dataTable) {
+
+        System.out.println(" all_bank_accounts ");
         List<List<Object>> rows = dataTable.asLists(Object.class);
 
         for (List<Object> columns : rows) {

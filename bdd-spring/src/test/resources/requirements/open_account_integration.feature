@@ -1,7 +1,7 @@
 
 @IntegrationTest
 
-Feature: Open Accounts in Bank
+Feature: Open Accounts in the Bank
 
   Scenario: Open a new account
     Given I make a initial deposit

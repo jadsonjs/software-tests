@@ -28,10 +28,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
-	implementation ("io.cucumber:cucumber-java:${cubumberVersion}")   { because 'we want to use cucumber for BDD'}
-	implementation ("io.cucumber:cucumber-spring:${cubumberVersion}") { because 'we want to integrate cucumber with spring'}
+	implementation ("io.cucumber:cucumber-java:${cubumberVersion}")                      { because 'we want to use cucumber for BDD'}
+	implementation ("io.cucumber:cucumber-spring:${cubumberVersion}")                    { because 'we want to integrate cucumber with spring'}
 
-	implementation ('com.google.guava:guava:31.1-jre')                { because 'we want to use google core lib'}
+	implementation ('com.google.guava:guava:31.1-jre')                                   { because 'we want to use google core lib'}
 
 	compileOnly "org.projectlombok:lombok:${lombokVersion}"
 	annotationProcessor "org.projectlombok:lombok:${lombokVersion}"

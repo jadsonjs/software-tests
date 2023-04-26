@@ -22,14 +22,13 @@ dependencies {
 
     // we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests
     testImplementation group: 'org.junit.platform', name: 'junit-platform-suite', version: '1.9.1'
+
+
     // we want to use dependency injection in our Cucumber tests - remove this if you don't
-    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.10.0'
+    //testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.10.0'
 
     // cubumber with Junit 4
     // testImplementation group: 'io.cucumber', name: 'cucumber-junit', version: '7.10.0'
-
-    // integration of cucumber with spring
-    // implementation group: 'io.cucumber', name: 'cucumber-spring', version: '7.10.0'
 
 }
 

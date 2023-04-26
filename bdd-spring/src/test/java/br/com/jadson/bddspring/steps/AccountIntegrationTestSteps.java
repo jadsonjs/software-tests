@@ -84,7 +84,8 @@ public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
 
         // consult the account in database
         ParameterizedTypeReference<List<Account>> type = new ParameterizedTypeReference<>() {};
-        ResponseEntity<List<Account>> accountsResponse = testRestTemplate.exchange("/account/list", HttpMethod.GET, null, type);
+        ResponseEntity<List<Account>> accountsResponse = testRestTemplate
+                .exchange("/account/list", HttpMethod.GET, null, type);
 
         Assertions.assertEquals(1, accountsResponse.getBody().size());
         Assertions.assertEquals(account.getBalance(), accountsResponse.getBody().get(0).getBalance());
@@ -94,4 +95,5 @@ public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
     public void the_response_will_return_status(Integer status) {
         Assertions.assertEquals(status, response.getStatusCode().value());
     }
+
 }
