@@ -30,8 +30,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 
 
-	implementation ('org.seleniumhq.selenium:selenium-java:4.9.0')
-			{ because 'we want to run selenium web driver tests'}
+	implementation ('org.seleniumhq.selenium:selenium-java:4.9.0')                       { because 'we want to run selenium web driver tests'}
+
+	implementation ("io.cucumber:cucumber-java:${cubumberVersion}")                      { because 'we want to use cucumber for BDD'}
+	implementation ("io.cucumber:cucumber-spring:${cubumberVersion}")                    { because 'we want to integrate cucumber with spring'}
 
 
 	implementation "org.webjars:bootstrap:${bootstrapVersion}"
@@ -45,6 +47,9 @@ dependencies {
 	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
 	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	testImplementation ('org.junit.platform:junit-platform-suite:1.9.1')                 { because 'we want to use the JUnit 5 @Suite annotation to select/run Cucumber tests'}
+	testImplementation ("io.cucumber:cucumber-junit-platform-engine:${cubumberVersion}") { because 'we want to execute cucumber with Junit 5'}
 }
 
 tasks.named('test') {

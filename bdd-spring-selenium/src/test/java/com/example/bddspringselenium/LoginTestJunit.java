@@ -22,7 +22,7 @@ import java.nio.file.Paths;
 public class LoginTestJunit {
 
 
-    private static WebDriver driver;
+    static WebDriver driver;
 
     @BeforeAll
     public static void setUp(){
