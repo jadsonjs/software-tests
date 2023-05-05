@@ -31,6 +31,6 @@ import org.junit.platform.suite.api.Suite;
     // filter test with this tag
     @ConfigurationParameter(key = Constants.FILTER_TAGS_PROPERTY_NAME, value = "@IntegrationTest")
 })
-public class AccountIntegrationTest {
+    public class AccountIntegrationTest {
 
 }
