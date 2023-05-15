@@ -18,7 +18,7 @@ import java.nio.file.Paths;
  *
  * @author Jadson Santos - jadson.santos@ufrn.br
  */
-public class LoginTest {
+public class LoginTestMain {
     public static void main(String[] args) {
 
         // load the driver

@@ -3,8 +3,7 @@
 
 
 
-
-
+@E2ETest
 
 
 Feature: Login

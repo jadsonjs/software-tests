@@ -59,14 +59,17 @@ tasks.named('test') {
 // override default test task
 test {
 	useJUnitPlatform {
-		excludeTags 'E2ETest'
+		excludeTags('E2ETest')
+	}
+	filter {
+		excludeTestsMatching "com.example.bddspringselenium.BddCucumberTests"
 	}
 }
 
 // create a new task for integration tests
 task e2eTest(type: Test) {
 	useJUnitPlatform {
-		includeTags 'E2ETest'
+		includeTags('E2ETest')
 	}
 }
 

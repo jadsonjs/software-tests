@@ -7,10 +7,8 @@
 package com.example.bddspringselenium;
 
 import io.cucumber.core.options.Constants;
-import org.junit.platform.suite.api.ConfigurationParameter;
-import org.junit.platform.suite.api.ConfigurationParameters;
-import org.junit.platform.suite.api.SelectClasspathResource;
-import org.junit.platform.suite.api.Suite;
+import org.junit.jupiter.api.Tag;
+import org.junit.platform.suite.api.*;
 
 /**
  *
@@ -21,5 +19,5 @@ import org.junit.platform.suite.api.Suite;
 @ConfigurationParameters({
         @ConfigurationParameter(key = Constants.PLUGIN_PUBLISH_QUIET_PROPERTY_NAME, value = "false")
 })
-public class BddTests {
+public class BddCucumberTests {
 }
