@@ -1,8 +1,7 @@
 /*
- *
  * bdd-spring
  * AccountIntegrationTestSteps
- * @since 20/01/2023
+ * @since 24/05/2023
  */
 package br.com.jadson.bddspring.steps;
 
@@ -23,12 +22,10 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 /**
- * It stores the mapping between each step of the scenario
- * defined in the feature file with a code of function to be executed.
  * @author Jadson Santos - jadson.santos@ufrn.br
  */
 @Slf4j
-public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
+public class AccountIntegrationTestSteps extends CucumberSpringContextConfig{
 
     Account account;
 
@@ -95,5 +92,4 @@ public class AccountIntegrationTestSteps extends CucumberSpringContextConfig {
     public void the_response_will_return_status(Integer status) {
         Assertions.assertEquals(status, response.getStatusCode().value());
     }
-
 }

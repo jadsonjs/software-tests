@@ -3,7 +3,7 @@
  * BankController
  * @since 20/01/2023
  */
-package br.com.jadson.bddspring.controllers;
+package br.com.jadson.bddspring.controller;
 
 import br.com.jadson.bddspring.model.Account;
 import br.com.jadson.bddspring.services.BankService;
