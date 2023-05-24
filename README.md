@@ -7,3 +7,5 @@ Implementation of some software testing using Junit and Spring Boot
   - Integration Tests
   - BDD with Cucumber
 
+
+These projects are used for software testing training
