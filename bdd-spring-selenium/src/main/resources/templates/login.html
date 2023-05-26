@@ -11,9 +11,11 @@
 </head>
 <body>
 <div class="container-fluid text-center">
+
     <div>
         <img class="img-fluid" th:src="@{/images/selenium.png}" style="width: 200px; "/>
     </div>
+
     <form th:action="@{/login}" th:object="${user}" method="post" style="max-width: 350px; margin: 0 auto;">
 
         <div class="border border-secondary p-3 rounded">

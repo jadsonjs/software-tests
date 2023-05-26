@@ -7,8 +7,10 @@
 package com.example.bddspringselenium;
 
 import io.cucumber.core.options.Constants;
-import org.junit.jupiter.api.Tag;
-import org.junit.platform.suite.api.*;
+import org.junit.platform.suite.api.ConfigurationParameter;
+import org.junit.platform.suite.api.ConfigurationParameters;
+import org.junit.platform.suite.api.SelectClasspathResource;
+import org.junit.platform.suite.api.Suite;
 
 /**
  *
